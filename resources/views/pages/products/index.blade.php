@@ -79,7 +79,12 @@
                                                     {{ $product->price }}
                                                 </td>
 
-                                                <td>{{ $product->image }}</td>
+                                                <td>@if ($product->image)
+                                                    <img src="{{ asset('storage/products/'.$product->image)}}" alt="" width="100px" class="img-thumbnail">
+                                                    @else
+                                                    <spa class="badge badge-danger">No Image</span>
+
+                                                @endif</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href='{{ route('product.edit', $product->id) }}'
